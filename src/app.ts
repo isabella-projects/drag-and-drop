@@ -1,5 +1,8 @@
 import './style.css';
 
-import * as Modules from './modules/ProjectInput';
+import { ProjectInput, ProjectList } from './modules/Project';
 
-const projectInput = new Modules.ProjectInput();
+const projectInput = new ProjectInput();
+
+const activeProjectList = new ProjectList('active');
+const finishedProjectList = new ProjectList('finished');
