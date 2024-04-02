@@ -1,6 +1,10 @@
+import { ProjectStatus } from '../inc/enums';
+import { Listener } from '../inc/types';
+import { Project } from './Project';
+
 export class ProjectState {
-    private listeners: any[] = [];
-    private projects: any[] = [];
+    private listeners: Listener[] = [];
+    private projects: Project[] = [];
     private static instance: ProjectState;
 
     private constructor() {}
@@ -14,17 +18,12 @@ export class ProjectState {
         return this.instance;
     }
 
-    addListener(listenerFn: Function) {
+    addListener(listenerFn: Listener) {
         this.listeners.push(listenerFn);
     }
 
     addProject(title: string, description: string, numOfPeople: number) {
-        const newProject = {
-            id: Math.random.toString(),
-            title: title,
-            description: description,
-            people: numOfPeople,
-        };
+        const newProject = new Project(Math.random().toString(), title, description, numOfPeople, ProjectStatus.Active);
 
         this.projects.push(newProject);
 

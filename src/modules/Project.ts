@@ -1,8 +1,19 @@
 import * as Decorators from '../inc/decorators';
 import * as Functions from '../inc/functions';
 import * as Interfaces from '../inc/interfaces';
+import * as Enums from '../inc/enums';
 
 import { ProjectState } from './ProjectState';
+
+export class Project {
+    constructor(
+        public id: string,
+        public title: string,
+        public description: string,
+        public people: number,
+        public status: Enums.ProjectStatus
+    ) {}
+}
 
 export class ProjectInput {
     templateElement: HTMLTemplateElement;
@@ -52,7 +63,11 @@ export class ProjectInput {
             max: 5,
         };
 
-        if (!Functions.validate(titleValidate) || !Functions.validate(descriptionValidate) || !Functions.validate(peopleValidate)) {
+        if (
+            !Functions.validate(titleValidate) ||
+            !Functions.validate(descriptionValidate) ||
+            !Functions.validate(peopleValidate)
+        ) {
             alert('Invalid input! Please try again!');
             return;
         } else {
@@ -94,7 +109,7 @@ export class ProjectList {
     templateElement: HTMLTemplateElement;
     hostElement: HTMLDivElement;
     element: HTMLElement;
-    assignedProjects: any[];
+    assignedProjects: Project[];
 
     constructor(private type: 'active' | 'finished') {
         this.templateElement = document.getElementById('project-list')! as HTMLTemplateElement;
@@ -106,8 +121,16 @@ export class ProjectList {
         this.element.id = `${this.type}-projects`;
 
         const projectState = ProjectState.getInstance();
-        projectState.addListener((projects: any[]) => {
-            this.assignedProjects = projects;
+        projectState.addListener((projects: Project[]) => {
+            const relevantProjects = projects.filter((project) => {
+                if (this.type === 'active') {
+                    return project.status === Enums.ProjectStatus.Active;
+                }
+
+                return project.status === Enums.ProjectStatus.Finished;
+            });
+
+            this.assignedProjects = relevantProjects;
             this.renderProjects();
         });
 
@@ -117,6 +140,7 @@ export class ProjectList {
 
     private renderProjects() {
         const listEl = document.getElementById(`${this.type}-projects-list`)! as HTMLUListElement;
+        listEl.innerHTML = '';
 
         for (const projectItem of this.assignedProjects) {
             const listItem = document.createElement('li');

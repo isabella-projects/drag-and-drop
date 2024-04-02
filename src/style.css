@@ -1,13 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    font-family: sans-serif;
+    font-family: 'Poppins';
 }
 
 body {
     margin: 0;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper h1 {
+    margin-top: 1rem;
+}
+
+.wrapper p {
+    font-style: italic;
 }
 
 label,
@@ -26,7 +47,6 @@ textarea {
     font: inherit;
     padding: 0.2rem 0.4rem;
     width: 100%;
-    max-width: 30rem;
     border: 1px solid #ccc;
 }
 
@@ -37,12 +57,14 @@ textarea:focus {
 }
 
 button {
+    border-radius: 5px;
     font: inherit;
     background: #ff0062;
     border: 1px solid #ff0062;
     cursor: pointer;
     color: white;
     padding: 0.75rem 1rem;
+    letter-spacing: 1.5pt;
 }
 
 button:focus {
@@ -57,11 +79,16 @@ button:active {
 
 .projects {
     margin: 1rem;
+    width: calc(100vw - 300px);
     border: 1px solid #ff0062;
+    border-radius: 6px;
 }
 
 .projects header {
     background: #ff0062;
+    border-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     height: 3.5rem;
     display: flex;
     justify-content: center;
@@ -78,6 +105,7 @@ button:active {
 
 .projects h2 {
     margin: 0;
+    letter-spacing: 1.5pt;
     color: white;
 }
 
@@ -89,8 +117,17 @@ button:active {
 
 .projects li {
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+    background-color: rgb(236, 141, 104);
     padding: 1rem;
     margin: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.56, 0.73, 0.27, 0.91);
+}
+
+.projects li:hover {
+    background-color: rgba(201, 76, 54, 0.685);
+    transform: scale(0.99);
 }
 
 .projects li h2 {
@@ -120,8 +157,46 @@ button:active {
 }
 
 #user-input {
-    margin: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
     padding: 1rem;
-    border: 1px solid #ff0062;
-    background: #f7f7f7;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    min-width: calc(100vw - 300px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#user-input button {
+    width: 620px;
+    margin-top: 0.725rem;
+}
+
+.form-control {
+    width: 620px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.form-control label {
+    text-align: left;
+    font-size: 1.125rem;
+    margin-bottom: 0;
+}
+
+.form-control input,
+.form-control textarea,
+.form-control select {
+    padding: 0.725rem;
+    border-radius: 5px;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

@@ -8,6 +8,8 @@
 
 ## ⚡ Drag & Drop application using TypeScript - part of my TypeScript journey.
 
+> [!IMPORTANT] > _The styling is just for demo purposes and not final. Functionality is considered as more important!_
+
 # 🛠 Tech Stack
 
 <div>

@@ -7,19 +7,34 @@
         <title>Drag & Drop</title>
     </head>
     <body>
+        <div class="wrapper">
+            <h1>Drag & Drop Application</h1>
+            <p>Exploring TypeScript by doing projects.</p>
+        </div>
         <template id="project-input">
             <form>
                 <div class="form-control">
                     <label for="title">Title</label>
-                    <input type="text" id="title" />
+                    <input type="text" id="title" placeholder="Enter title of a project..." />
                 </div>
                 <div class="form-control">
                     <label for="description">Description</label>
-                    <textarea id="description" rows="3"></textarea>
+                    <textarea
+                        id="description"
+                        rows="4"
+                        placeholder="Enter a description about your project..."
+                    ></textarea>
                 </div>
                 <div class="form-control">
                     <label for="people">People</label>
-                    <input type="number" id="people" step="1" min="0" max="10" />
+                    <input
+                        type="number"
+                        id="people"
+                        step="1"
+                        min="0"
+                        max="10"
+                        placeholder="Enter the amount of people who will work on the project..."
+                    />
                 </div>
                 <button type="submit">ADD PROJECT</button>
             </form>
