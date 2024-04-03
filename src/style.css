@@ -82,6 +82,7 @@ button:active {
     width: calc(100vw - 300px);
     border: 1px solid #ff0062;
     border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .projects header {
@@ -113,6 +114,7 @@ button:active {
     list-style: none;
     margin: 0;
     padding: 1rem;
+    overflow: hidden;
 }
 
 .projects li {
@@ -123,6 +125,17 @@ button:active {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.56, 0.73, 0.27, 0.91);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.projects li:last-child {
+    opacity: 0;
+}
+
+.projects li.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .projects li:hover {
