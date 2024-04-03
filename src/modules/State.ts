@@ -1,6 +1,7 @@
 import { ProjectStatus } from '../inc/enums';
-
 import { Listener } from '../inc/types';
+
+import { v4 as uuid } from 'uuid';
 import { Project } from './Project';
 
 class State<T> {
@@ -29,7 +30,8 @@ export class ProjectState extends State<Project> {
     }
 
     addProject(title: string, description: string, numOfPeople: number) {
-        const newProject = new Project(Math.random().toString(), title, description, numOfPeople, ProjectStatus.Active);
+        const projectId = uuid();
+        const newProject = new Project(projectId, title, description, numOfPeople, ProjectStatus.Active);
 
         this.projects.push(newProject);
 
