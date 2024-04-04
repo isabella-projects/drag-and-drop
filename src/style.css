@@ -128,6 +128,14 @@ button:active {
 }
 
 .projects li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        'icon title title'
+        'icon persons persons'
+        'icon description description';
+    align-items: center;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
     background-color: rgb(236, 141, 104);
     padding: 1rem;
@@ -137,6 +145,33 @@ button:active {
     transition: all 0.3s cubic-bezier(0.56, 0.73, 0.27, 0.91);
     opacity: 0;
     transform: translateY(20px);
+}
+
+.projects li h2,
+.projects li h3,
+.projects li p {
+    word-wrap: break-word;
+    margin: 0.625rem 0 0.125rem 0.625rem;
+}
+
+.projects li i {
+    font-size: 1.725rem;
+    color: rgb(85, 85, 85);
+    grid-area: icon;
+    place-self: center;
+    padding: 1.125rem;
+}
+
+.projects li h2 {
+    grid-area: title;
+}
+
+.projects line h3 {
+    grid-area: persons;
+}
+
+.projects li p {
+    grid-area: description;
 }
 
 .projects li:last-child {
@@ -149,13 +184,16 @@ button:active {
 }
 
 .projects li:hover {
-    background-color: rgba(201, 76, 54, 0.685);
+    background-color: rgba(212, 91, 70, 0.685);
     transform: scale(0.99);
+}
+
+.projects li:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .projects li h2 {
     color: #ff0062;
-    margin: 0.5rem 0;
 }
 
 #finished-projects li h2 {
@@ -163,7 +201,7 @@ button:active {
 }
 
 .projects li h3 {
-    color: #575757;
+    color: #313131;
     font-size: 1rem;
 }
 

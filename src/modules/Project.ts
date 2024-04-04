@@ -94,7 +94,7 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     }
 }
 
-export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
+export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements Interfaces.Draggable {
     private project: Project;
 
     get persons() {
@@ -113,7 +113,19 @@ export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
         this.renderContent();
     }
 
-    configure() {}
+    @Decorators.Autobind
+    dragStartHandler(event: DragEvent) {
+        console.log(event);
+    }
+
+    dragEndHandler(_: DragEvent) {
+        console.log('Drag ended');
+    }
+
+    configure() {
+        this.element.addEventListener('dragstart', this.dragStartHandler);
+        this.element.addEventListener('dragend', this.dragEndHandler);
+    }
 
     renderContent() {
         this.element.querySelector('h2')!.textContent = this.project.title;
