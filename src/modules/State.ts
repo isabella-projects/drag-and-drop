@@ -13,7 +13,7 @@ class State<T> {
 }
 
 export class ProjectState extends State<Project> {
-    private projects: Project[] = [];
+    public projects: Project[] = [];
     private static instance: ProjectState;
 
     private constructor() {
@@ -34,7 +34,29 @@ export class ProjectState extends State<Project> {
         const newProject = new Project(projectId, title, description, numOfPeople, ProjectStatus.Active);
 
         this.projects.push(newProject);
+        this.updateListeners();
+    }
 
+    moveProject(projectId: string, newStatus: ProjectStatus) {
+        const project = this.projects.find((prj) => {
+            return prj.id === projectId;
+        });
+
+        if (project && project.status !== newStatus) {
+            project.status = newStatus;
+            this.updateListeners();
+        }
+    }
+
+    removeProject(projectId: string) {
+        const projectIndex = this.projects.findIndex((project) => project.id === projectId);
+        if (projectIndex !== -1) {
+            this.projects.splice(projectIndex, 1);
+            this.updateListeners();
+        }
+    }
+
+    private updateListeners() {
         for (const listenerFn of this.listeners) {
             listenerFn(this.projects.slice());
         }
