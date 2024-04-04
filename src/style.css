@@ -127,17 +127,22 @@ button:active {
     overflow: hidden;
 }
 
+.projects #active-projects-list {
+    background-color: rgb(250, 158, 122);
+}
+
 .projects li {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 2fr 0.1fr;
     grid-template-rows: repeat(3, auto);
     grid-template-areas:
-        'icon title title'
-        'icon persons persons'
-        'icon description description';
+        'icon title trash'
+        'icon persons trash'
+        'icon description trash';
     align-items: center;
+    column-gap: 1.5rem;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
-    background-color: rgb(236, 141, 104);
+    background-color: rgb(219, 119, 79);
     padding: 1rem;
     margin: 1rem;
     border-radius: 6px;
@@ -156,10 +161,16 @@ button:active {
 
 .projects li i {
     font-size: 1.725rem;
-    color: rgb(85, 85, 85);
+    color: rgb(44, 43, 43);
     grid-area: icon;
     place-self: center;
     padding: 1.125rem;
+    transition: text-shadow 0.3s linear;
+}
+
+.projects li i:hover {
+    text-shadow: 2px 2px 2px white;
+    color: #3d3d3d;
 }
 
 .projects li h2 {
@@ -172,6 +183,10 @@ button:active {
 
 .projects li p {
     grid-area: description;
+}
+
+.projects li i:last-of-type {
+    grid-area: trash;
 }
 
 .projects li:last-child {
@@ -193,11 +208,8 @@ button:active {
 }
 
 .projects li h2 {
-    color: #ff0062;
-}
-
-#finished-projects li h2 {
-    color: #0044ff;
+    color: #ff0000;
+    text-shadow: 2px 3px 2px black;
 }
 
 .projects li h3 {
@@ -205,16 +217,20 @@ button:active {
     font-size: 1rem;
 }
 
-.project li p {
-    margin: 0;
-}
-
 .droppable {
-    background: #ffe3ee;
+    background-color: rgb(236, 141, 104);
 }
 
 #finished-projects .droppable {
-    background: #d6e1ff;
+    background-color: rgb(146, 208, 250);
+}
+
+#finished-projects-list {
+    background-color: rgb(137, 183, 252);
+}
+
+#finished-projects li {
+    background-color: rgb(53, 123, 226);
 }
 
 #user-input {
