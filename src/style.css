@@ -25,10 +25,20 @@ body {
 
 .wrapper h1 {
     margin-top: 1rem;
+    text-shadow: 1px 1px 1px white;
 }
 
 .wrapper p {
     font-style: italic;
+    text-shadow: 1px 1px 1px white;
+}
+
+.wrapper .line {
+    height: 6px;
+    width: calc(100vw - 300px);
+    margin-top: 2rem;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
 }
 
 label,
