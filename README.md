@@ -6,10 +6,11 @@
 
 # 📝 Description & Demo
 
-## ⚡ Drag & Drop web application using TypeScript - part of my TypeScript learning journey.
+-   Drag & Drop web application using TypeScript + Vite. This project is part of my TypeScript learning journey. You can add title, description and assign people to a project. When your project is finished, you can simply drag & drop onto the finished projects section to mark the project as done.
 
-> [!IMPORTANT]
-> *The styling is just for demo purposes and not final. Functionality is considered as more important!*
+![mockup](https://github.com/isabella-projects/drag-and-drop/assets/76888305/f0ca1cba-31db-409b-a157-d4423e5fee56)
+
+> [!IMPORTANT] > _The styling is just for demo purposes and not final. Functionality is considered as more important!_
 
 # 🛠 Tech Stack
 
