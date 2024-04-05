@@ -12,7 +12,7 @@
 
 ![mockup](https://github.com/isabella-projects/drag-and-drop/assets/76888305/f0ca1cba-31db-409b-a157-d4423e5fee56)
 
-> [!IMPORTANT] > _The styling is just for demo purposes and not final. Functionality is considered as more important!_
+> _The styling is just for demo purposes and not final. Functionality is considered as more important!_
 
 # 🛠 Tech Stack
 
