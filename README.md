@@ -2,11 +2,11 @@
     <img src="https://i.imgur.com/YlGrpaq.png" width="800px" height="auto">
 </div>
 
-# 🌐 Drag & Drop Application
+# 🌐 Drag & Drop Web Application
 
-# 📝 Description
+# 📝 Description & Demo
 
-## ⚡ Drag & Drop application using TypeScript - part of my TypeScript journey.
+## ⚡ Drag & Drop web application using TypeScript - part of my TypeScript learning journey.
 
 > [!IMPORTANT]
 > *The styling is just for demo purposes and not final. Functionality is considered as more important!*
